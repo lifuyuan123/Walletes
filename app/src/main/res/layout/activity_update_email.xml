@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarShowLine="true"
+      app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarTitle="修改邮箱"
+        >
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dip"
+                android:text="请输入新邮箱"
+                android:textColor="@color/app_gray"
+                android:textSize="16dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dip"
+                android:gravity="center"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+
+                <com.wallet.bo.wallets.ui.weiget.CleanableEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="textEmailAddress"
+                    android:lines="1" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dip"
+        android:paddingTop="15dip"
+        android:text="去自己邮箱验证"
+        android:textColor="@color/app_gray"
+        android:textSize="16dp" />
+
+
+    <Button
+        android:id="@+id/bt_play"
+        android:layout_width="match_parent"
+        android:layout_height="46dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="40dip"
+        android:layout_marginRight="40dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/titlebg_selector"
+        android:text="验证"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

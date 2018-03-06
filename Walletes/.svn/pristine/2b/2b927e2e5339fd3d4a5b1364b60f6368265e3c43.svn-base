@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/white"
+        app:titleBarLeftImage="@drawable/im_back_black"
+        app:titleBarTitle="个人信息"
+        app:titleBarTitleColor="@color/text_gray">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <com.wallet.bo.wallets.ui.weiget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="2dip"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingLeft="10dip">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dip"
+                    android:drawablePadding="10dip"
+                    android:text="头像"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/bt_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dip"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.wallet.bo.wallets.ui.weiget.riv.RoundedImageView
+                        android:id="@+id/im_head"
+                        android:layout_width="46dip"
+                        android:layout_height="46dip"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/im_myhead"
+                        app:border_color="#f8d67e"
+                        app:border_width="1dp"
+                        app:corner_radius="26dip"
+                        app:mutate_background="false"
+                        app:oval="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dip"
+                        android:drawableRight="@drawable/im_spinner_right"
+                        android:gravity="center_vertical" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="昵称"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_nName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical|right"
+                    android:text="xm-112c"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="真实姓名"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_uName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical|right"
+                    android:text="我去"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="身份证号"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical|right"
+                    android:text="510823199465734265"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="单位名称"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_units"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical|right"
+                    android:text="成都陌行天下"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="手机号"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical|right"
+                    android:text="138****3553"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="常用邮箱"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical|right"
+                    android:text="pxb@ggband.cn"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical"
+                    android:text="现居住地址"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:gravity="center_vertical|right"
+                    android:text="四川-成都"
+                    android:textColor="@color/app_gray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray" />
+
+
+        </LinearLayout>
+
+    </com.wallet.bo.wallets.ui.weiget.BounceScrollView>
+
+
+</LinearLayout>

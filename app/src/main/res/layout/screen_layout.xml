@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/screen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:layout_width="@dimen/x280"
+        android:layout_height="match_parent">
+        <View
+            android:background="@color/app_theme"
+            android:layout_width="match_parent"
+            android:layout_height="20dip"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_top_bar"
+            android:orientation="horizontal"
+            android:background="@color/app_theme">
+
+            <ImageView
+                android:id="@+id/screen_iv_go"
+                android:layout_marginLeft="@dimen/x5"
+                android:src="@mipmap/iv_go"
+                android:layout_width="@dimen/x15"
+                android:layout_height="@dimen/x15" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/x10"
+                android:textSize="18sp"
+                android:text="小陌服务"
+                android:textColor="@color/white"
+                android:id="@+id/tv_title"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x10">
+
+            <!--借款方式-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x10"
+                android:gravity="center"
+                android:text="借款方式"
+                android:textColor="@color/button_normal"
+                android:textSize="@dimen/ppd_font_size_16_sp" />
+
+            <RadioGroup
+                android:id="@+id/screen_rg_borrowWay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x30"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="借现金"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="还信用"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color" />
+            </RadioGroup>
+
+
+            <!--我的身份-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x15"
+                android:gravity="center"
+                android:text="我的身份"
+                android:textColor="@color/button_normal"
+                android:textSize="@dimen/ppd_font_size_16_sp" />
+
+            <RadioGroup
+                android:id="@+id/screen_rg_identity"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x30"
+                android:orientation="horizontal"
+                android:weightSum="8">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="工薪族"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_weight="2"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="企业族"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color"/>
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_weight="2"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="其他"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color" />
+            </RadioGroup>
+
+
+            <!--借款金额-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x10"
+                android:gravity="center"
+                android:text="借款金额"
+                android:textColor="@color/button_normal"
+                android:textSize="@dimen/ppd_font_size_16_sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x5"
+                android:orientation="horizontal"
+                android:weightSum="7">
+
+                <EditText
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:id="@+id/screen_tv_money"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/x30"
+                    android:layout_weight="4"
+                    android:background="@drawable/tv_back"
+                    android:gravity="center"
+                    android:text="500"
+                    android:textSize="@dimen/ppd_font_size_16_sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/x30"
+                    android:layout_marginLeft="@dimen/x5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:text="元"
+                    android:textColor="@color/button_normal"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!--借款期限-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x10"
+                android:gravity="center"
+                android:text="借款期限"
+                android:textColor="@color/button_normal"
+                android:textSize="@dimen/ppd_font_size_16_sp" />
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x30"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:maxLength="2"
+                    android:id="@+id/screen_tv_time"
+                    android:layout_width="@dimen/x85"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tv_back"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:text="30"
+                    android:textSize="@dimen/ppd_font_size_16_sp" />
+
+                <RadioGroup
+                    android:id="@+id/screen_rg_time"
+                    android:weightSum="2"
+                    android:layout_width="@dimen/x100"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:orientation="horizontal">
+
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="天"
+                        android:background="@drawable/rb_left_back"
+                        android:textColor="@drawable/sctern_tv_color" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="月"
+                        android:background="@drawable/rb_right_back"
+                        android:textColor="@drawable/sctern_tv_color" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!--有无信用卡-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x30"
+                android:layout_marginTop="@dimen/x10"
+                android:gravity="center"
+                android:text="有无信用卡"
+                android:textColor="@color/button_normal"
+                android:textSize="@dimen/ppd_font_size_16_sp" />
+
+            <RadioGroup
+                android:id="@+id/screen_rg_CreditCard"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x30"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="有"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_weight="1"
+                    android:background="@drawable/screen_tv_back"
+                    android:textColor="@drawable/sctern_tv_color"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="无" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <!--最下面的按钮-->
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x35">
+            <TextView
+                android:id="@+id/screen_tv_return"
+                android:layout_weight="1"
+                android:textColor="@color/button_normal"
+                android:text="重置"
+                android:gravity="center"
+                android:textSize="@dimen/ppd_font_size_16_sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/screen_tv_ok"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:background="#FC584C"
+                android:text="确定"
+                android:gravity="center"
+                android:textSize="@dimen/ppd_font_size_16_sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    </LinearLayout>

@@ -1,0 +1,278 @@
+package com.wallet.bo.wallets.http;
+
+import com.wallet.bo.wallets.Utils.LogUtils;
+import com.wallet.bo.wallets.Utils.RequestHelpr;
+import com.wallet.bo.wallets.lianlianpay.PayOrder;
+import com.wallet.bo.wallets.pojo.Card;
+import com.wallet.bo.wallets.pojo.Config;
+import com.wallet.bo.wallets.pojo.Credits;
+import com.wallet.bo.wallets.pojo.JudmentLoanState;
+import com.wallet.bo.wallets.pojo.LoanDetail;
+import com.wallet.bo.wallets.pojo.LoanLog;
+import com.wallet.bo.wallets.pojo.Login;
+import com.wallet.bo.wallets.pojo.Message;
+import com.wallet.bo.wallets.pojo.MoneyCalculate;
+import com.wallet.bo.wallets.pojo.NoticeAndGallery;
+import com.wallet.bo.wallets.pojo.Order;
+import com.wallet.bo.wallets.pojo.ProLoanLog;
+import com.wallet.bo.wallets.pojo.ProductDetail;
+import com.wallet.bo.wallets.pojo.Products;
+import com.wallet.bo.wallets.pojo.ProductsURL;
+import com.wallet.bo.wallets.pojo.RepayDetail;
+import com.wallet.bo.wallets.pojo.Verify;
+import com.wallet.bo.wallets.pojo.WalletLoanLog;
+import com.wallet.bo.wallets.pojo.YunFen;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+
+/**
+ * author:ggband
+ * date:2017/8/17 10:55
+ * email:ggband520@163.com
+ * desc:
+ */
+
+public class HttpLoader extends ObjectLoader implements IHttpLoader {
+    private ApiStores apiStores;
+    private RequestHelpr requestHelpr;
+
+    public static HttpLoader instance;
+
+    private HttpLoader() {
+        apiStores = AppClient.retrofit().create(ApiStores.class);
+        requestHelpr = RequestHelpr.getInstance();
+    }
+
+    public static synchronized HttpLoader getInstance() {
+        if (instance == null) {
+            instance = new HttpLoader();
+        }
+        return instance;
+    }
+
+
+    @Override
+    public void common(String url, Map<String, String> stringMap, final ApiCommonCallback callback) {
+        if (callback == null)
+            observe(apiStores.common(url, requestHelpr.getRequestParm(stringMap))).subscribe(new ApiCommonCallback() {
+                @Override
+                public void onSuccess(ResponseBody responseBody) {
+
+                    try {
+                        LogUtils.i(Config.LOGTAG, responseBody.string().toString());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(String msg) {
+
+                    LogUtils.i(Config.LOGTAG, msg);
+
+
+                }
+
+                @Override
+                public void onFinish() {
+                    LogUtils.i(Config.LOGTAG, "网络加载完成");
+
+                }
+            });
+        else
+            observe(apiStores.common(url, requestHelpr.getRequestParm(stringMap))).subscribe(callback);
+
+    }
+
+    @Override
+    public void login(Map<String, String> stringMap, ApiBaseResponseCallback<Login> callBack) {
+        observe(apiStores.accountLogin(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void mesLogin(Map<String, String> stringMap, ApiBaseResponseCallback<Login> callBack) {
+        observe(apiStores.mesLogin(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+
+    }
+
+    @Override
+    public void updataUserInfo(Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.updataUserInfo(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void updataUserInfoo(Map<String, Object> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.updataUserInfoo(requestHelpr.getRequestParmo(stringMap))).subscribe(callBack);
+
+    }
+
+    @Override
+    public void commonExecute(String url, Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.commonExecute(url, requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void verify(Map<String, String> stringMap, ApiBaseResponseCallback<Verify> callBack) {
+        observe(apiStores.verify(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void moneyCalculate(String day, String money, ApiBaseResponseCallback<MoneyCalculate> callBack) {
+        observe(apiStores.moneyCalculate(day, money)).subscribe(callBack);
+
+    }
+
+    @Override
+    public void addBank(Map<String, String> stringMap, ApiBaseResponseCallback<String> callBack) {
+        observe(apiStores.addBank(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void addOrder(Map<String, String> stringMap, ApiBaseResponseCallback<Order> callBack) {
+        observe(apiStores.addOrder(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+
+    }
+
+    @Override
+    public void getCard(Map<String, String> stringMap, ApiBaseResponseCallback<Card> callBack) {
+        observe(apiStores.getCard(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void credit(Map<String, String> stringMap, ApiBaseResponseCallback<Credits> callBack) {
+        observe(apiStores.credit(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void yunFeng(String url, Map<String, String> stringMap, ApiBaseResponseCallback<YunFen> callBack) {
+        observe(apiStores.yunFeng(url, requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+
+    }
+
+    @Override
+    public void addLianLianSign(Map<String, Object> stringMap, ApiBaseResponseCallback<PayOrder> callBack) {
+        observe(apiStores.addLianLianSign(requestHelpr.getRequestParmo(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void addBankLianLianSign(Map<String, String> stringMap, ApiBaseResponseCallback<PayOrder> callBack) {
+        observe(apiStores.addBankLianLianSign(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void loanLog(Map<String, String> stringMap, ApiBaseResponseCallback<List<LoanLog>> callBack) {
+        observe(apiStores.loanLog(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void loanLogDetail(Map<String, String> stringMap, ApiBaseResponseCallback<LoanDetail> callBack) {
+        observe(apiStores.loanLogDetail(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void products(Map<String, String> stringMap, ApiBaseResponseCallback<List<Products>> callBack) {
+        observe(apiStores.products(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void productDetail(Map<String, String> stringMap, ApiBaseResponseCallback<ProductDetail> callBack) {
+        observe(apiStores.productDetail(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void returnBank(Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.returnBank(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void returnFace(Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.returnFace(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void returnTaobao(String uid, String type, String taskID, String code, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.returnTaobao(uid, type, taskID, code)).safeSubscribe(callBack);
+    }
+
+    @Override
+    public void creditUrl(Map<String, String> stringMap, ApiBaseResponseCallback<String> callBack) {
+        observe(apiStores.creditUrl(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void returnZmCredit(String url, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.returnZmCredit(url)).subscribe(callBack);
+
+    }
+
+    @Override
+    public void updateHeadImg(Map<String, RequestBody> params, ApiBaseResponseCallback<String> callBack) {
+        observe(apiStores.updateHeadImg(params)).subscribe(callBack);
+    }
+
+    @Override
+    public void updateCardImg(Map<String, RequestBody> params, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.updateCardImg(params)).subscribe(callBack);
+    }
+
+    @Override
+    public void getLoanScore(String uid, ApiBaseResponseCallback<JudmentLoanState> callBack) {
+        observe(apiStores.getLoanScore(uid)).subscribe(callBack);
+    }
+
+    @Override
+    public void walletLoanLog(Map<String, String> stringMap, ApiBaseResponseCallback<WalletLoanLog> callBack) {
+        observe(apiStores.walletLoanLog(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void repayDetail(Map<String, String> stringMap, ApiBaseResponseCallback<RepayDetail> callBack) {
+        observe(apiStores.repayDetail(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void noticAndGallery(Map<String, String> stringMap, ApiBaseResponseCallback<NoticeAndGallery> callBack) {
+        observe(apiStores.noticAndGallery(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void feedback(Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.feedback(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void verifyTransactionPassword(Map<String, String> stringMap, ApiBaseResponseCallback<Object> callBack) {
+        observe(apiStores.verifyTransactionPassword(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void getMessage(String uid, ApiBaseResponseCallback<List<Message>> callBack) {
+        observe(apiStores.getMessage(uid)).subscribe(callBack);
+
+    }
+
+    @Override
+    public void loanProduct(Map<String, String> stringMap, ApiBaseResponseCallback<ProductsURL> callBack) {
+        observe(apiStores.loanProduct(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+
+    }
+
+    @Override
+    public void cancelOrder(Map<String, String> stringMap, ApiBaseResponseCallback<LoanDetail> callBack) {
+        observe(apiStores.cancelOrder(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+    }
+
+    @Override
+    public void proLoanLog(Map<String, String> stringMap, ApiBaseResponseCallback<List<ProLoanLog>> callBack) {
+        observe(apiStores.proLoanLog(requestHelpr.getRequestParm(stringMap))).subscribe(callBack);
+
+    }
+
+
+}

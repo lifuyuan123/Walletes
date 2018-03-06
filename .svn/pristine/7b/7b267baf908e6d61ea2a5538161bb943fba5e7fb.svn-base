@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dip">
+
+    <com.wallet.bo.wallets.ui.weiget.CircleRefreshView
+        android:id="@+id/cc_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <com.wallet.bo.wallets.ui.weiget.sr.RcScrollview
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:id="@+id/ll_viewAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/ll_loan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_credit_level"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dip">
+                <!--android:background="@drawable/im_creditbg"-->
+
+                <LinearLayout
+                    android:layout_width="256dip"
+                    android:layout_height="256dip"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/im_credit_vbg"
+                    android:gravity="center">
+
+                    <com.wallet.bo.wallets.ui.weiget.HoloCircularProgressBar
+                        android:id="@+id/holoCircularProgressBar"
+                        android:layout_width="176dp"
+                        android:layout_height="176dp"
+                        app:marker_progress="0.5"
+                        app:progress="0.4" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/bt_loan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_credit_loan"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip"
+                    android:text="申请借款"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dip"
+                    android:text="授权越多，信用分越高,借款额越高"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/app_space_bg"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="10dip"
+                    android:text="以下授权能帮助你提高额度"
+                    android:textColor="@color/app_gray"
+                    android:textSize="14sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_credit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </com.wallet.bo.wallets.ui.weiget.sr.RcScrollview>
+
+    </com.wallet.bo.wallets.ui.weiget.CircleRefreshView>
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarTitle="信用">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+
+</RelativeLayout>
+

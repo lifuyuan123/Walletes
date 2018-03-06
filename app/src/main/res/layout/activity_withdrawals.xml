@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical"
+    tools:context="com.wallet.bo.wallets.ui.activity.WithdrawalsActivity">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/withdrawals_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarShowLine="true"
+        app:titleBarTitle="申请提现" />
+
+
+
+    <com.wallet.bo.wallets.ui.weiget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--背景图-->
+            <LinearLayout
+                android:background="@drawable/withdrawals_background"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"/>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--借款单号-->
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:gravity="center_vertical"
+                            android:textColor="@color/color_text_02"
+                            android:textSize="16dp"
+                            android:text="借款单号"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:textColor="#484a4b"
+                            android:id="@+id/tv_withdrawals_number"
+                            android:singleLine="true"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="40dp"
+                            android:textSize="15dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#dfdddd"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+
+                    <!--申请时间-->
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:textColor="@color/color_text_02"
+                            android:gravity="center_vertical"
+                            android:textSize="16dp"
+                            android:text="申请时间"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:textColor="#484a4b"
+                            android:id="@+id/tv_withdrawals_applytime"
+                            android:singleLine="true"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="40dp"
+                            android:textSize="15dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#dfdddd"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                    <!--可提现金额-->
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:textColor="@color/color_text_02"
+                            android:gravity="center_vertical"
+                            android:textSize="16dp"
+                            android:text="可提现金额"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:textColor="#484a4b"
+                            android:id="@+id/tv_withdrawals_money"
+                            android:singleLine="true"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="40dp"
+                            android:textSize="15dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#dfdddd"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                    <!--收款银行卡-->
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:textColor="@color/color_text_02"
+                            android:gravity="center_vertical"
+                            android:textSize="16dp"
+                            android:text="收款银行卡"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:textColor="#484a4b"
+                            android:id="@+id/tv_withdrawals_bankcard"
+                            android:singleLine="true"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="40dp"
+                            android:textSize="15dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#dfdddd"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+
+            <TextView
+                android:textColor="#aa696969"
+                android:textSize="12dp"
+                android:text="预计一个工作日到账，以银行处理时间为准！"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#aa696969"
+                android:textSize="12dp"
+                android:text="还款时间计算以放款时间为准！"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/bt_withdrawals"
+                android:gravity="center"
+                android:text="立即提现"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:background="@drawable/withdrawals_bt"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+    </com.wallet.bo.wallets.ui.weiget.BounceScrollView>
+
+</LinearLayout>

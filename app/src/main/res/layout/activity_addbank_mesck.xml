@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+      app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_close"
+
+        app:titleBarTitle="添加银行卡">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <com.wallet.bo.wallets.ui.weiget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_alert"
+                android:layout_width="match_parent"
+                android:textSize="14dp"
+                android:padding="15dip"
+                android:textColor="@color/app_gray"
+                android:text="已向138***7443发送验证短信，请输入验证码"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="15dip">
+
+                <TextView
+                    android:id="@+id/tv_cp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="验证码"
+                    android:textColor="@color/text_gray"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/bt_cp"
+                    android:layout_width="wrap_content"
+                    android:minWidth="72dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/bg_ckred_loan"
+                    android:gravity="center"
+                    android:text="重新获取"
+                    android:textColor="@color/app_theme"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/et_cp"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_toLeftOf="@id/bt_cp"
+                    android:layout_toRightOf="@id/tv_cp"
+                    android:background="@null"
+                    android:lines="1" />
+
+
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/bt_goto"
+                android:layout_width="match_parent"
+                android:layout_height="42dip"
+                android:layout_marginBottom="26dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="46dip"
+                android:background="@drawable/titlebg_selector"
+                android:text="下一步"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+    </com.wallet.bo.wallets.ui.weiget.BounceScrollView>
+
+
+</LinearLayout>

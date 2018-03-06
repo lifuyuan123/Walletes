@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wallet.bo.wallets.ui.weiget.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dip"
+    android:background="@color/app_space_bg"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/ll_parent"
+            android:layout_width="match_parent"
+            android:layout_height="260dip"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/ll_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="260dip"
+                android:visibility="gone">
+
+                <fragment
+                    android:id="@+id/fragment_cycle_viewpager_content"
+                    android:name="com.wallet.bo.wallets.ui.weiget.banner.CycleViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/im_loan_bg">
+
+                <LinearLayout
+                    android:id="@+id/ll_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dip"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:padding="6dip"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <!--android:background="#50eeeee0"-->
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/notice" />
+
+                    <ViewFlipper
+                        android:id="@+id/vf_notice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:autoStart="true"
+                        android:flipInterval="2500"
+                        android:inAnimation="@anim/anim_marquee_in"
+                        android:outAnimation="@anim/anim_marquee_out">
+
+                    </ViewFlipper>
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/ll_notice">
+
+
+                    <TextView
+                        android:id="@+id/tv_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="10dip"
+                        android:text="10,000"
+                        android:textColor="@android:color/white"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_amount"
+                        android:layout_margin="10dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最高可借额度"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(元)"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_amount"
+                        android:layout_margin="10dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="借款金额和期限以审批为准"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/bt_loangl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_loan_gl"
+                                android:padding="8dip"
+                                android:text="借款攻略"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_enable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:padding="12dip"
+                        android:text="激活额度"
+                        android:textColor="@color/app_theme"
+                        android:textSize="38px"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ll_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="10dip">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dip"
+                android:layout_marginTop="6dip"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:text="借多少"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/spinner_down"
+                    android:gravity="center"
+                    android:text="2000元"
+                    android:textColor="@color/app_theme"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_margin="5dip"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/app_line" />
+
+
+            <com.wallet.bo.wallets.ui.weiget.ChooseView
+                android:id="@+id/cv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:gravity="center"
+                android:visibility="gone"
+                app:spinner="true"
+                app:title="借多久"
+                app:titleColor="@android:color/black"
+                app:titleSize="30">
+
+            </com.wallet.bo.wallets.ui.weiget.ChooseView>
+
+
+            <Button
+                android:id="@+id/bt_play"
+                android:layout_width="match_parent"
+                android:layout_height="46dip"
+                android:layout_marginBottom="5dip"
+                android:background="@drawable/titlebg_selector"
+                android:text="立即借款"
+                android:textColor="@drawable/title_selector"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="借款期限以实际审批为准"
+                android:textColor="@color/app_btn"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_bt"
+            android:layout_width="match_parent"
+            android:layout_height="96dip"
+            android:layout_below="@id/ll_center"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="2dip">
+
+            <TextView
+                android:id="@+id/bt_cheats"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="8dip"
+                android:drawableTop="@drawable/cheats"
+                android:gravity="center"
+                android:text="借款秘籍"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="20dip"
+                android:background="@color/app_line" />
+
+            <TextView
+                android:id="@+id/bt_help"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="8dip"
+                android:drawableTop="@drawable/help"
+                android:gravity="center"
+                android:text="帮助中心"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <com.wallet.bo.wallets.ui.weiget.gallery.WGallery
+            android:id="@+id/wg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_bt"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@android:color/white"
+            app:wGallery_scalePivot="center"
+            app:wGallery_selectedScale="1.2"
+            app:wGallery_spacing="5dip"
+            app:wGallery_unselectedAlpha="0.3">
+
+        </com.wallet.bo.wallets.ui.weiget.gallery.WGallery>
+
+    </RelativeLayout>
+
+</com.wallet.bo.wallets.ui.weiget.BounceScrollView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarRightTitle="注册"
+        app:titleBarTitle="登陆">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <com.wallet.bo.wallets.ui.weiget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="26dip">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/im_name" />
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_loginType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/app_theme"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/app_theme"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"
+                app:tabTextColor="@color/button_normal">
+
+            </android.support.design.widget.TabLayout>
+
+            <com.wallet.bo.wallets.ui.weiget.SwapViewpager
+                android:id="@+id/vp_loginType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.wallet.bo.wallets.ui.weiget.SwapViewpager>
+
+
+            <Button
+                android:id="@+id/bt_login"
+                style="@style/bt_goto"
+                android:text="登陆" />
+
+
+        </LinearLayout>
+
+    </com.wallet.bo.wallets.ui.weiget.BounceScrollView>
+
+</LinearLayout>

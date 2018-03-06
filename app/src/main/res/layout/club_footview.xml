@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginRight="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <!--会员说明-->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="会员资格说明"
+            android:textSize="18dp"
+            android:textColor="@color/app_theme"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/vip_describe"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="14dp"
+            android:text="会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明会员说明"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

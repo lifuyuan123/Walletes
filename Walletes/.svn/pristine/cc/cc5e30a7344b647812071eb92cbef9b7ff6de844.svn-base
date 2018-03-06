@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarRightImage="@drawable/im_share"
+        app:titleBarTitle="产品详情">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dip"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_pcs"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="联系客服"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/bt_ploan"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/app_theme"
+            android:gravity="center"
+            android:text="我要借款"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ease_titlebar"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingLeft="26dip"
+        android:paddingRight="20dip">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dip"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/im_head"
+                    android:layout_width="56dip"
+                    android:layout_height="56dip"
+                    android:src="@drawable/im_pone" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dip"
+                    android:text="拍拍贷"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="20dip">
+
+                <TextView
+                    android:id="@+id/tv_pinfo"
+                    android:layout_width="96dip"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/im_pbinfo"
+                    android:gravity="center"
+                    android:padding="8dip"
+                    android:text="当天到账"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <include layout="@layout/item_horizontal_gray" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:paddingTop="15dip">
+
+            <TextView
+                android:id="@+id/tv_ed"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="500-5000"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="right"
+                android:text="1/3/6/9/12月"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:paddingBottom="15dip">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="额度范围"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.3"
+                android:gravity="right"
+                android:text="借款期限"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_head"
+        android:layout_marginBottom="50dip"
+        android:layout_marginTop="10dip"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingBottom="10dip"
+            android:paddingLeft="26dip"
+            android:paddingRight="20dip"
+            android:paddingTop="10dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dip"
+                android:text="产品介绍"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="18sp" />
+
+            <include layout="@layout/item_horizontal_gray" />
+
+            <TextView
+                android:id="@+id/tv_dec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dip"
+                android:layout_marginTop="10dip"
+                android:text="按时还款累计信用后，你的额度由大幅度提升，个人最高额度可达20万，企业做最高额度100万。"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dip"
+                android:text="申请条件"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="18sp" />
+
+            <include layout="@layout/item_horizontal_gray" />
+
+            <TextView
+                android:id="@+id/tv_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dip"
+                android:layout_marginTop="10dip"
+                android:text="无不良征信记录"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

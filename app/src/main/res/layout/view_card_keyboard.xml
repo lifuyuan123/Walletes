@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboardview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5.0dp"
+        android:background="@color/gray"
+        android:focusable="true"
+        android:keyBackground="@drawable/bg_keyboard_selector"
+        android:keyTextColor="@android:color/black"
+        android:keyTextSize="26.0sp"
+        android:shadowColor="#ffffffff"
+        android:shadowRadius="0.0" />
+
+</LinearLayout>

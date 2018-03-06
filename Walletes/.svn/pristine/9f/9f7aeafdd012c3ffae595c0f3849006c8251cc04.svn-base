@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg">
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarTitle="帮助中心">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ease_titlebar"
+        android:layout_marginBottom="50dip"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="20dip"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip"
+                android:paddingTop="20dip">
+
+                <ImageView
+
+                    android:layout_width="96dip"
+                    android:layout_height="96dip"
+                    android:src="@drawable/im_help_header" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/im_help_jjbg"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="30dip"
+                        android:paddingRight="10dip"
+                        android:text="你好我是客服小陌，有问题咨询可以直接拨打101245" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:gravity="right"
+                        android:text="服务时间：9:00-23:00" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:background="@android:color/white"
+                android:drawableLeft="@drawable/im_help_common"
+                android:drawablePadding="10dip"
+                android:padding="15dip"
+                android:text="常见问题"
+                android:textColor="#ed4932"
+                android:textSize="18sp" />
+
+            <include layout="@layout/item_horizontal_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dip"
+                    android:textSize="18sp"
+                    android:drawableTop="@drawable/im_help_repay"
+                    android:padding="20dip"
+                    android:text="还款问题" />
+
+                <View
+                    android:layout_width="2px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/app_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bt_loanwen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:drawablePadding="10dip"
+                        android:textColor="@color/text_gray"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="借钱怎么还？"/>
+
+                    <include layout="@layout/item_horizontal_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:textColor="@color/text_gray"
+                        android:drawablePadding="10dip"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="可以提前还款吗？"/>
+
+                    <include layout="@layout/item_horizontal_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:textColor="@color/text_gray"
+                        android:drawablePadding="10dip"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="无法还款怎么办？"/>
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dip"
+                    android:textSize="18sp"
+                    android:drawableTop="@drawable/im_help_apply"
+                    android:padding="20dip"
+                    android:text="申请问题" />
+
+
+                <View
+                    android:layout_width="2px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/app_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:drawablePadding="10dip"
+                        android:textColor="@color/text_gray"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="申请需要什么资料？"/>
+
+                    <include layout="@layout/item_horizontal_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:drawablePadding="10dip"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/text_gray"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="为什么我的审核会失败？"/>
+
+                    <include layout="@layout/item_horizontal_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="10dip"
+                        android:drawablePadding="10dip"
+                        android:textColor="@color/text_gray"
+                        android:drawableRight="@drawable/im_help_hot"
+                        android:text="申请后如何打到收款？"/>
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/item_horizontal_gray"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dip"
+        android:background="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:text="常见问题"
+            android:gravity="center"
+            android:drawablePadding="10dip"
+            android:drawableTop="@drawable/im_help_common_down"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bt_cs"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:text="人工客服"
+            android:gravity="center"
+            android:drawablePadding="10dip"
+            android:drawableTop="@drawable/im_help_cs"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

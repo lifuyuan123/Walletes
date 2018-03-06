@@ -1,0 +1,166 @@
+package com.wallet.bo.wallets.ui.activity;
+
+import android.content.Intent;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.wallet.bo.wallets.R;
+import com.wallet.bo.wallets.Utils.TextUtils;
+import com.wallet.bo.wallets.Utils.dedclick.AntiShake;
+import com.wallet.bo.wallets.http.ApiBaseResponseCallback;
+import com.wallet.bo.wallets.pojo.Config;
+import com.wallet.bo.wallets.pojo.LoanDetail;
+import com.wallet.bo.wallets.pojo.LoanStatus;
+import com.wallet.bo.wallets.ui.weiget.BounceScrollView;
+import com.wallet.bo.wallets.ui.weiget.EaseTitleBar;
+import com.wallet.bo.wallets.ui.weiget.load.DefaultLoadingLayout;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * author:ggband
+ * date:2017/7/19 14:26
+ * email:ggband520@163.com
+ * desc:借款记录详情
+ */
+
+public class LoanLogDetailsActivity extends BaseSwipeActivity {
+
+    @BindView(R.id.ease_titlebar)
+    EaseTitleBar easeTitlebar;
+    String number;
+    @BindView(R.id.tv_number)
+    TextView tvNumber;
+    @BindView(R.id.tv_loanTime)
+    TextView tvLoanTime;
+    @BindView(R.id.bankNo)
+    TextView bankNo;
+    @BindView(R.id.tv_loanLimit)
+    TextView tvLoanLimit;
+    @BindView(R.id.phone)
+    TextView phone;
+    @BindView(R.id.repayTime)
+    TextView repayTime;
+    @BindView(R.id.xsf)
+    TextView xsf;
+    @BindView(R.id.tv_rate)
+    TextView tvRate;
+    @BindView(R.id.tv_accountfei)
+    TextView tvAccountfei;
+    @BindView(R.id.tv_rapayMoeny)
+    TextView tvRapayMoeny;
+    @BindView(R.id.bt_repay)
+    TextView btRepay;
+    @BindView(R.id.tv_mon)
+    TextView tvMon;
+    @BindView(R.id.parent)
+    BounceScrollView parent;
+    @BindView(R.id.bt_status)
+    TextView btStatus;
+    @BindView(R.id.ll_bt)
+    LinearLayout llBt;
+    private DefaultLoadingLayout loadingLayout;
+    LoanStatus loanStatus;
+    LoanDetail loanDetail;
+
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_loanlog_details;
+    }
+
+    @Override
+    protected void initView() {
+        loadingLayout = DefaultLoadingLayout.createDefaultLayout(activity, parent);
+        number = getIntent().getStringExtra("number");
+        easeTitlebar.setLeftLayoutClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    protected void setUpView() {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initLoanLog();
+    }
+
+    private void initLoanLog() {
+        loadingLayout.onLoading();
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put("number", number);
+        stringMap.put("uid", MyApplication.getLogin().getUserid());
+        httpLoader.loanLogDetail(stringMap, new ApiBaseResponseCallback<LoanDetail>() {
+            @Override
+            public void onSuccessful(LoanDetail loanDetails) {
+                setData(loanDetails);
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                if (msg.equals(Config.NONETWORK))
+                    loadingLayout.onNonet();
+                toastShow(msg);
+            }
+
+            @Override
+            public void onFinish() {
+                loadingLayout.onDone();
+            }
+        });
+    }
+
+    private void setData(LoanDetail loanDetail) {
+        if (loanDetail == null)
+            return;
+        tvNumber.setText(loanDetail.getNumber());
+        tvLoanTime.setText(loanDetail.getTime());
+        tvMon.setText(String.format(getResources().getString(R.string.rmb), String.valueOf(loanDetail.getMoney())));
+        bankNo.setText(loanDetail.getBankname() + "\n" + "(" + loanDetail.getAccount() + ")");
+        tvLoanLimit.setText(String.format(getResources().getString(R.string.day), String.valueOf(loanDetail.getInfo().getDay())));
+        phone.setText(loanDetail.getPhone());
+        repayTime.setText(loanDetail.getMake_loans_time());
+        xsf.setText(String.format(getResources().getString(R.string.rmb), TextUtils.decimalTwo(loanDetail.getInfo().getCreditaduit().floatValue())));
+        tvRate.setText(String.format(getResources().getString(R.string.rmb), TextUtils.decimalTwo(loanDetail.getInfo().getInterest().floatValue())));
+        tvAccountfei.setText(String.format(getResources().getString(R.string.rmb), TextUtils.decimalTwo(loanDetail.getInfo().getAdministrativefee().floatValue())));
+        tvRapayMoeny.setText(String.format(getResources().getString(R.string.rmb), TextUtils.decimalTwo(loanDetail.getInfo().getRefundmoney().floatValue())));
+
+        btRepay.setText(loanDetail.getStatename());
+        loanStatus = LoanStatus.getLoanStatus(loanDetail.getS());
+        LoanLogDetailsActivity.this.loanDetail = loanDetail;
+        btStatus.setText(loanStatus.getBtName());
+        llBt.setBackgroundColor(loanStatus.getStatusColorRes());
+
+    }
+
+    @OnClick({R.id.ll_bt})
+    public void onClick(View view) {
+        if (AntiShake.check(view.getId())) {    //判断是否多次点击
+            return;
+        }
+        switch (view.getId()) {
+            case R.id.ll_bt:
+                if (!loanDetail.getMake_loans_state())
+                    return;
+                Intent intent = new Intent(activity, RepaymentActivity.class);
+                intent.putExtra("number", number);
+                startActivity(intent);
+                break;
+        }
+
+    }
+
+
+}

@@ -1,0 +1,151 @@
+package com.wallet.bo.wallets.ui.fragment;
+
+
+import android.content.ComponentName;
+import android.content.Intent;
+import android.text.InputType;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+
+import com.wallet.bo.wallets.MainActivity;
+import com.wallet.bo.wallets.R;
+import com.wallet.bo.wallets.Utils.AddSpaceTextWatcher;
+import com.wallet.bo.wallets.Utils.TextUtils;
+import com.wallet.bo.wallets.Utils.dedclick.AntiShake;
+import com.wallet.bo.wallets.http.ApiBaseResponseCallback;
+import com.wallet.bo.wallets.pojo.Login;
+import com.wallet.bo.wallets.pojo.LoginOut;
+import com.wallet.bo.wallets.pojo.Navagation;
+import com.wallet.bo.wallets.pojo.WalletLoanLog;
+import com.wallet.bo.wallets.ui.activity.MyApplication;
+import com.wallet.bo.wallets.ui.activity.ResetLoginPsActivity;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
+
+/**
+ * author:ggband
+ * date:2017/8/8 9:05
+ * email:ggband520@163.com
+ * desc:用户名登陆
+ */
+
+public class AccountLoginFragment extends BaseFragment {
+    @BindView(R.id.et_name)
+    EditText etName;
+    @BindView(R.id.et_ps)
+    EditText etPs;
+
+    @Override
+    public void initView() {
+        etName.setInputType(InputType.TYPE_CLASS_NUMBER);
+        //  TextUtils.phoneNum(etName);
+        AddSpaceTextWatcher addSpaceTextWatcher = new AddSpaceTextWatcher(etName, 13);
+        addSpaceTextWatcher.setSpaceType(AddSpaceTextWatcher.SpaceType.mobilePhoneNumberType);
+
+    }
+
+    @Override
+    public void setViewUp() {
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_account_login;
+    }
+
+
+    @OnClick({R.id.bt_help})
+    public void onClick(View view) {
+        if (AntiShake.check(view.getId())) {    //判断是否多次点击
+            return;
+        }
+        switch (view.getId()) {
+            case R.id.bt_help:
+                Intent intent = new Intent(activity, ResetLoginPsActivity.class);
+                startActivity(intent);
+                break;
+
+
+        }
+    }
+
+
+    private void login() {
+
+        mainDialog.show();
+        Map<String, String> stringStringMap = new HashMap<>();
+        stringStringMap.put("phone", TextUtils.repaceTrim(etName.getText().toString().trim()));
+        stringStringMap.put("password", etPs.getText().toString().trim());
+
+        httpLoader.login(stringStringMap, new ApiBaseResponseCallback<Login>() {
+            @Override
+            public void onSuccessful(final Login login) {
+                MyApplication.setLogin(login);
+                EventBus.getDefault().post(new LoginOut(false));
+                JPushInterface.setAlias(context, login.getUserid(), new TagAliasCallback() {
+                    @Override
+                    public void gotResult(int i, String s, Set<String> set) {
+                        Log.i("ggband", "phone:" + login.getUserid() + " i:" + i + " s:" + s);
+                    }
+                });
+                if (getActivity().getIntent().getBooleanExtra("pro", false)) {
+                    activity.finish();
+                } else if (getActivity().getIntent().getBooleanExtra("credit", false)) {
+                    EventBus.getDefault().post(new Navagation(2));
+                    activity.finish();
+                } else if (getActivity().getIntent().getBooleanExtra("toWallet", false)) {
+                    EventBus.getDefault().post(new WalletLoanLog());
+                    activity.finish();
+                } else if (getActivity().getIntent().getBooleanExtra("resetPw", false)) {
+                    getActivity().startActivity(new Intent(activity, MainActivity.class));
+                    activity.finish();
+                } else
+                    startActivity();
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                toastShow(msg);
+            }
+
+            @Override
+            public void onFinish() {
+                mainDialog.dismiss();
+            }
+        });
+
+    }
+
+
+    public void loging() {
+        login();
+    }
+
+
+    private void startActivity() {
+
+        if (getActivity().getIntent().getExtras() != null && getActivity().getIntent().getExtras().getString("className") != null) {
+            String className = getActivity().getIntent().getExtras().getString("className");
+            getActivity().getIntent().removeExtra("className");
+            if (className != null && !className.equals(getContext().getClass().getName())) {
+                try {
+                    ComponentName componentName = new ComponentName(getContext(), Class.forName(className));
+                    startActivity(getActivity().getIntent().setComponent(componentName));
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        getActivity().finish();
+    }
+}

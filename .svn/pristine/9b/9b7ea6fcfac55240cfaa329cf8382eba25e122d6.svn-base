@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libapshare20161108">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/libapshare20161108.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

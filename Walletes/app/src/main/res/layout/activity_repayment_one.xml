@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarRightTitle="去记账"
+        app:titleBarTitle="我的借款">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wallet.bo.wallets.ui.weiget.sr.RcScrollview
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               android:paddingBottom="25dip"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/im_repaymentbg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dip"
+                        android:text="7月25日需还款（元）"
+                        android:textColor="@android:color/white"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_loanAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="1000"
+                        android:textColor="@android:color/white"
+                        android:textSize="90px" />
+
+
+                    <TextView
+                        android:id="@+id/bt_gorepayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:background="@drawable/im_repayment_bt"
+                        android:gravity="center"
+                        android:text="去还钱"
+                        android:textColor="@android:color/white"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dip"
+                        android:layout_marginTop="15dip"
+                        android:drawableLeft="@drawable/im_repayment_wen"
+                        android:drawablePadding="10dip"
+                        android:gravity="center"
+                        android:text="未按时还款？"
+                        android:textColor="@android:color/white"
+                        android:textSize="26px" />
+
+
+                </LinearLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_repay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+        </com.wallet.bo.wallets.ui.weiget.sr.RcScrollview>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="click"
+            type="com.wallet.bo.wallets.ui.activity.RepaymentPwActivity"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/app_space_bg">
+
+
+    <TextView
+        android:id="@+id/bt_back"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="10dip"
+        android:drawableLeft="@drawable/im_back_black"
+        android:text="输入数字支付密码"
+        android:textSize="16dp" />
+
+    <com.wallet.bo.wallets.ui.weiget.SecurityPasswordEditText
+        android:id="@+id/spe"
+        android:layout_below="@id/bt_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip">
+
+    </com.wallet.bo.wallets.ui.weiget.SecurityPasswordEditText>
+
+
+</RelativeLayout>
+</layout>

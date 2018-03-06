@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vip"
+            type="com.wallet.bo.wallets.pojo.VipBeans.MenberBean"/>
+    </data>
+
+
+    <!--最外层  为了控制右上角标签位置-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x110">
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_silver"
+            android:id="@+id/vip_item_iv_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--最外层-->
+        <!--左边的整张卡片-->
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--第一排  会员-->
+                <LinearLayout
+                        android:layout_marginLeft="15dp"
+                        android:orientation="horizontal"
+                        android:gravity="bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/x24">
+
+                    <TextView
+                        android:includeFontPadding="false"
+                        android:textStyle="bold"
+                        android:id="@+id/club_item_tv_viptype"
+                        android:textColor="@color/app_btn"
+                        android:textSize="@dimen/x18"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="@{vip.name}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:gravity="bottom"
+                        android:id="@+id/clib_ll_remoney"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:includeFontPadding="false"
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/club_item_tv_remoney"
+                            android:textColor="@color/app_btn"
+                            android:textSize="@dimen/x22"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textStyle="bold"
+                            android:text=""
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:includeFontPadding="false"
+                            android:id="@+id/clib_item_tv_unit"
+                            android:textSize="@dimen/x12"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textColor="@color/app_btn"
+                            android:text="元/年"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                            <TextView
+                                android:includeFontPadding="false"
+                                android:visibility="invisible"
+                                android:layout_marginLeft="10dp"
+                                android:id="@+id/club_item_tv_money"
+                                android:textColor="@color/app_btn"
+                                android:textSize="@dimen/x12"
+                                android:singleLine="true"
+                                android:ellipsize="end"
+                                android:textStyle="bold"
+                                android:text=""
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+                <!--第二排  可借款  可免息-->
+                <LinearLayout
+                    android:layout_marginTop="@dimen/x8"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                        <!--可借款-->
+                        <com.flyco.roundview.RoundTextView
+                            app:rv_strokeWidth="1dp"
+                            app:rv_cornerRadius="3dp"
+                            app:rv_strokeColor="@color/app_theme"
+                            android:layout_marginLeft="15dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:id="@+id/club_item_tv_canborrow"
+                            android:textColor="@color/app_theme"
+                            android:textSize="@dimen/x12"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:maxEms="5"
+                            android:text="@{vip.txt_upgrade}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <!--可免息-->
+                        <com.flyco.roundview.RoundTextView
+                            app:rv_strokeWidth="1dp"
+                            app:rv_cornerRadius="3dp"
+                            app:rv_strokeColor="@color/app_btn"
+                            android:layout_marginLeft="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:id="@+id/club_item_tv_free"
+                            android:textColor="@color/app_btn"
+                            android:textSize="@dimen/x12"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:maxEms="5"
+                            android:text="@{vip.txt_interestfree}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <!--第三排   10笔借款     可退款-->
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/x8"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <!--10笔借款-->
+                <com.flyco.roundview.RoundTextView
+                                app:rv_strokeWidth="1dp"
+                                app:rv_cornerRadius="3dp"
+                                app:rv_strokeColor="@color/app_theme"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:id="@+id/club_item_tv_back"
+                                android:textColor="@color/app_theme"
+                                android:textSize="@dimen/x12"
+                                android:singleLine="true"
+                                android:ellipsize="end"
+                                android:maxEms="12"
+                                android:text="@{vip.txt_refund}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <!--手续费图标-->
+        <com.flyco.roundview.RoundTextView
+            android:layout_marginTop="@dimen/x4"
+            android:layout_marginRight="@dimen/x6"
+            android:layout_alignParentRight="true"
+            app:rv_cornerRadius="3dp"
+            app:rv_backgroundColor="#D41F27"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:id="@+id/club_item_tv_tag"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x10"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="可升级"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,166 @@
+package com.wallet.bo.wallets.ui.activity;
+
+import android.content.Intent;
+import android.databinding.ViewDataBinding;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.wallet.bo.wallets.R;
+import com.wallet.bo.wallets.Utils.TextUtils;
+import com.wallet.bo.wallets.adapter.CommAdapter;
+import com.wallet.bo.wallets.databinding.BankItemBinding;
+import com.wallet.bo.wallets.http.ApiBaseResponseCallback;
+import com.wallet.bo.wallets.pojo.Card;
+import com.wallet.bo.wallets.pojo.Config;
+import com.wallet.bo.wallets.ui.weiget.EaseTitleBar;
+import com.wallet.bo.wallets.ui.weiget.load.DefaultLoadingLayout;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * author:ggband
+ * date:2017/7/18 16:58
+ * email:ggband520@163.com
+ * desc:我的银行卡
+ */
+
+public class MyBankActivity extends BaseSwipeActivity {
+
+    @BindView(R.id.ease_titlebar)
+    EaseTitleBar easeTitlebar;
+    @BindView(R.id.rv_bank)
+    RecyclerView rvLoanLog;
+    @BindView(R.id.bt_addBank)
+    TextView btAddBank;
+    @BindView(R.id.ll_parent)
+    LinearLayout llParent;
+    private List<Card> cardList;
+    private CommAdapter<Card> commAdapter;
+    int bankSelectID = 0;//默认银行卡
+    boolean isShowBankSelect;
+
+    private DefaultLoadingLayout loadingLayout;
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_bank;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        init();
+    }
+
+    @Override
+    protected void initView() {
+
+       loadingLayout = DefaultLoadingLayout.createDefaultLayout(activity, llParent);
+        isShowBankSelect = getIntent().getBooleanExtra("isShowBankSelect", false);
+        cardList = new ArrayList<>();
+
+        commAdapter = new CommAdapter<Card>(cardList, -1, R.layout.bank_item) {
+            @Override
+            protected void bindViewItemData(ViewDataBinding binding, int position, Card card, ViewHolder holder) {
+                BankItemBinding bankItemBinding = (BankItemBinding) binding;
+                bankItemBinding.tvCardType.setText(card.getBankname() + "-储蓄卡");
+                bankItemBinding.tvCardNumberS.setText(TextUtils.sub4start(card.getAccount()));
+                bankItemBinding.tvCardNumber.setText(TextUtils.sub4end(card.getAccount()));
+                bankItemBinding.tvIphone.setText("手机尾号" + TextUtils.sub4end(card.getPhone()));
+                if (isShowBankSelect)
+                    if (position == bankSelectID)
+                        bankItemBinding.ivBankSelect.setVisibility(View.VISIBLE);
+                    else
+                        bankItemBinding.ivBankSelect.setVisibility(View.GONE);
+            }
+        };
+        commAdapter.setOnItemClickListener(new CommAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View item, long position) {
+                { //单选
+                    if (isShowBankSelect) {
+                        bankSelectID = (int) position;
+                        commAdapter.notifyDataSetChanged();
+                        Intent intent = getIntent();
+                        intent.putExtra("bank", cardList.get((int) position).getAccount());
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                }
+
+            }
+        });
+        rvLoanLog.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        rvLoanLog.setAdapter(commAdapter);
+
+
+    }
+
+    @Override
+    protected void setUpView() {
+        easeTitlebar.setLeftLayoutClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+    }
+
+    @OnClick({R.id.bt_addBank})
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+
+            case R.id.bt_addBank:
+                startActivity(new Intent(activity, AddBankActivity.class));
+                break;
+
+        }
+
+    }
+
+    private void init() {
+        loadingLayout.onLoading();
+        Map<String, String> stringStringMap = new HashMap<>();
+        stringStringMap.put("uid", MyApplication.getLogin().getUserid());
+        httpLoader.getCard(stringStringMap, new ApiBaseResponseCallback<Card>() {
+            @Override
+            public void onSuccessful(Card card) {
+                if (card == null) {
+                    btAddBank.setVisibility(View.VISIBLE);
+                    return;
+                }
+                btAddBank.setVisibility(View.GONE);
+                cardList.add(0, card);
+                commAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                if (msg.equals(Config.NONETWORK)) {
+                    loadingLayout.onNonet();
+                } else {
+                    toastShow(msg);
+                }
+
+            }
+
+            @Override
+            public void onFinish() {
+                loadingLayout.onDone();
+            }
+        });
+
+
+    }
+}

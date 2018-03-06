@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioButton
+        android:id="@+id/rb_bankName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:padding="15dip"
+        android:text="建设银行(2215)"
+        android:background="@android:color/white"
+        android:drawableRight="@drawable/repayment_ckbg_selector"
+        android:textColor="@color/text_gray"
+        android:textSize="16sp" />
+
+</LinearLayout>

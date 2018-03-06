@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:rv="http://schemas.android.com/tools">
+    <data></data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <View
+        android:background="@color/app_theme"
+        android:layout_width="match_parent"
+        android:layout_height="20dip"/>
+
+        <!--头部布局-->
+        <RelativeLayout
+            android:background="@color/app_theme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_top_bar">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:src="@mipmap/productlogo"
+                android:layout_width="@dimen/x114"
+                android:layout_height="@dimen/x30" />
+
+            <com.flyco.roundview.RoundTextView
+                app:rv_backgroundColor="#ffffff"
+                app:rv_cornerRadius_TL="@dimen/x15"
+                app:rv_cornerRadius_BL="@dimen/x15"
+                android:gravity="center_vertical"
+                android:id="@+id/tv_jump"
+                android:textColor="@color/text_color_02"
+                android:paddingLeft="@dimen/x10"
+                android:paddingRight="@dimen/x5"
+                android:layout_centerVertical="true"
+                android:text="条件筛选"
+                android:textSize="@dimen/ppd_font_size_14_sp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x25" />
+        </RelativeLayout>
+
+     <!--刷新控件-->
+    <com.wallet.bo.wallets.ui.weiget.srv.PullLayout
+        android:id="@+id/basic_pl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_shop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.wallet.bo.wallets.ui.weiget.srv.PullLayout>
+
+    </LinearLayout>
+
+
+</layout>

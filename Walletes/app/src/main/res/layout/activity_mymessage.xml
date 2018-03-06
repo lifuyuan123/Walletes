@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarTitle="消息"
+        app:titleBarBackground="@color/app_theme"
+        android:fitsSystemWindows="true">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <include layout="@layout/baselist"/>
+
+
+
+</LinearLayout>

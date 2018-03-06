@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.wallet.bo.wallets.ui.activity.RefundActivity">
+    <!--title-->
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/refund_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarShowLine="true"
+        app:titleBarTitle="申请退款">
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <com.wallet.bo.wallets.ui.weiget.ObservableScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/refund_iv"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_info_deamonds"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x120" />
+
+    <!--退款描述-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:text="退款金额:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/refound_tv_money"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:text="300元"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:text="退款说明:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/refound_tv_describe"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textSize="16dp"
+                android:lineSpacingExtra="5dp"
+                android:text="您已满足钻石会员在会员期限内有限借款笔数累计10笔且无任何逾期，您可申请退款!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:textSize="17dp"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--android:text="退回账户:"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+                <!--android:layout_marginBottom="40dp"-->
+                <!--android:id="@+id/refound_tv_bank"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:textSize="15dp"-->
+                <!--android:text="建设银行卡"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+
+
+    <!--退款按钮-->
+    <TextView
+        android:textSize="18dp"
+        android:id="@+id/tv_confirm"
+        android:background="@drawable/refound_bt_background"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="申请退款"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    </LinearLayout>
+    </com.wallet.bo.wallets.ui.weiget.ObservableScrollView>
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+      app:titleBarBackground="@color/app_theme"
+        app:titleBarLeftImage="@drawable/im_back"
+        app:titleBarRightTitle="保存"
+        app:titleBarShowLine="true"
+        app:titleBarTitle="修改昵称"
+        >
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dip"
+                android:textSize="16dp"
+                android:textColor="@color/app_gray"
+                android:text="设置后，其他人将看到你的昵称" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="15dip"
+                android:text="昵称"
+                android:textSize="18dp"
+                android:textColor="@android:color/holo_orange_light" />
+
+            <com.wallet.bo.wallets.ui.weiget.CleanableEditText
+                android:id="@+id/et_nickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:drawableRight="@drawable/im_et_clear"
+                android:hint="xm-1122c"
+                android:lines="1"
+                android:maxLength="20"
+                android:padding="15dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dip"
+                android:textSize="16dp"
+                android:textColor="@color/app_gray"
+                android:text="4-20个字符，可由中英文、数字、“-”组成" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_space_bg"
+    android:orientation="vertical">
+
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        app:titleBarBackground="@color/white"
+        app:titleBarLeftImage="@drawable/im_close"
+        app:titleBarTitle="设置交易密码"
+        app:titleBarTitleColor="@color/text_gray">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+    <com.wallet.bo.wallets.ui.weiget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_alert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/liji_material_blue_700"
+                    android:padding="15dip"
+                    android:text="@string/updateTraPassWord"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/et_card"
+                    android:layout_marginTop="10dip"
+                    style="@style/AppEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="卡号"
+                    android:maxLength="48"
+                    android:inputType="number"
+                    app:met_bottomTextSize="14sp"
+                    app:met_clearButton="true"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelTextSize="14sp"
+                    app:met_primaryColor="@color/app_theme"
+                    app:met_singleLineEllipsis="true"
+                    app:met_textColor="@color/text_gray"
+                    app:met_textColorHint="@color/text_gray" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/et_tel"
+                    style="@style/AppEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="银行卡预留手机号"
+                    android:inputType="phone"
+                    android:maxLength="13"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:clickable="false"
+                    app:met_bottomTextSize="14sp"
+                    app:met_clearButton="true"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelTextSize="14sp"
+                    app:met_primaryColor="@color/app_theme"
+                    app:met_singleLineEllipsis="true"
+                    app:met_textColor="@color/text_gray"
+                    app:met_textColorHint="@color/text_gray" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/bt_goto"
+                style="@style/bt_goto"
+                android:text="下一步" />
+
+        </LinearLayout>
+
+
+    </com.wallet.bo.wallets.ui.weiget.BounceScrollView>
+
+
+</LinearLayout>

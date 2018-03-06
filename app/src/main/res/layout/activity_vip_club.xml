@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <!--title-->
+        <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+            android:id="@+id/vip_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            app:titleBarBackground="@color/app_theme"
+            app:titleBarLeftImage="@drawable/im_back"
+            app:titleBarShowLine="true"
+            app:titleBarTitle="会员俱乐部">
+        </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+         <!--刷新控件-->
+        <com.wallet.bo.wallets.ui.weiget.srv.PullLayout
+            android:id="@+id/vip_pull"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/vip_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+
+        </com.wallet.bo.wallets.ui.weiget.srv.PullLayout>
+
+
+
+    </LinearLayout>
+

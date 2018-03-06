@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.wallet.bo.wallets.ui.weiget.ObservableScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+
+            <LinearLayout
+                android:id="@+id/ll_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_head"
+                        android:layout_width="match_parent"
+                        android:layout_height="196dip"
+                        android:background="@drawable/im_info_head">
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dip"
+                        android:layout_below="@id/rl_head"
+                        android:background="@color/white">
+
+                    </RelativeLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="105dip">
+
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dip"
+                            android:layout_marginLeft="8dip"
+                            android:layout_marginRight="8dip"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="8dip"
+                            app:cardElevation="8dip"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <TextView
+                                    android:id="@+id/tv_uName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="60dip"
+                                    android:text="zan"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="26sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="15dip"
+                                    android:text="510***46646"
+                                    android:textColor="@color/app_text_gray"
+                                    android:textSize="16sp" />
+
+                            </RelativeLayout>
+
+
+                        </android.support.v7.widget.CardView>
+
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="86dip">
+
+                        <com.wallet.bo.wallets.ui.weiget.riv.RoundedImageView
+                            android:id="@+id/im_head"
+                            android:layout_width="64dip"
+                            android:layout_height="64dip"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/im_myhead"
+                            app:border_color="#f8d67e"
+                            app:border_width="1dp"
+                            app:corner_radius="26dip"
+                            app:mutate_background="false"
+                            app:oval="true" />
+
+                    </FrameLayout>
+
+
+                </RelativeLayout>
+
+                <include layout="@layout/item_horizontal_gray" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dip">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical"
+                            android:text="昵称"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_nName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:drawableRight="@drawable/im_spinner_right"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/app_text_gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <include layout="@layout/item_horizontal_gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical"
+                            android:text="单位名称"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_units"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/app_text_gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <include layout="@layout/item_horizontal_gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical"
+                            android:text="手机号"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:drawableRight="@drawable/im_spinner_right"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/app_text_gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <include layout="@layout/item_horizontal_gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical"
+                            android:text="常用邮箱"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:drawableRight="@drawable/im_spinner_right"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/app_text_gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <include layout="@layout/item_horizontal_gray" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="15dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical"
+                            android:text="现居住地"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dip"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/app_text_gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <include layout="@layout/item_horizontal_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dip"
+                    android:padding="15dip"
+                    android:text="小陌钱包保障您的信息安全"
+                    android:gravity="center"
+                    android:textColor="@color/app_text_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </com.wallet.bo.wallets.ui.weiget.ObservableScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/titleBarParent"
+            android:layout_width="match_parent"
+            android:layout_height="69dip"
+            android:background="@android:color/transparent"
+            android:gravity="bottom">
+
+            <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+                android:id="@+id/ease_titlebar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                app:titleBarBackground="@color/transparent"
+                app:titleBarLeftImage="@drawable/im_back"
+                app:titleBarTitle="个人信息">
+
+            </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

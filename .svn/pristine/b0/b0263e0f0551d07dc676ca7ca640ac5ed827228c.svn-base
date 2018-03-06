@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <View
+        android:background="@color/app_theme"
+        android:layout_width="match_parent"
+        android:layout_height="20dip"/>
+
+    <com.wallet.bo.wallets.ui.weiget.EaseTitleBar
+        android:id="@+id/ease_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleBarBackground="@color/app_theme">
+
+    </com.wallet.bo.wallets.ui.weiget.EaseTitleBar>
+
+
+    <com.wallet.bo.wallets.ui.weiget.srv.PullLayout
+        android:id="@+id/basic_pl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_shop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.wallet.bo.wallets.ui.weiget.srv.PullLayout>
+
+
+</LinearLayout>

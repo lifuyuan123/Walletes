@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="mineclick"
+            type="com.wallet.bo.wallets.ui.fragment.SlideMineFragment"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--layout_behavior   背景图放大效果-->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.wallet.bo.wallets.ui.weiget.appbar_behavior.AppBarLayoutOverScrollViewBehavior">
+            ​
+
+            <!--设置标题大小
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"-->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:onClick="@{mineclick.onClick}"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title_size"
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:contentScrim="@color/app_theme"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <!--背景图-->
+                    <ImageView
+                        android:id="@+id/profile_backdrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_credit_level"
+                        android:scaleType="centerCrop"
+                        android:tag="overScroll"
+                        app:layout_collapseMode="parallax" />
+
+                    <View
+                        android:id="@+id/view_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_collapseMode="pin" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical"
+                        app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                        <LinearLayout
+                            android:id="@+id/materialup_title_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp">
+
+                            <TextView
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:background="@drawable/vip_background"
+                                android:id="@+id/tv_min_vip"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:layout_marginTop="5dp"
+                                android:text="普通会员"
+                                android:textColor="@color/vip_color"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/tv_set_nick"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginTop="5dp"
+                                android:text=""
+                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle" />
+                            ​
+                        </LinearLayout>
+
+                        <!--波浪-->
+                        <com.wallet.bo.wallets.ui.weiget.WaveView
+                            android:id="@+id/waveline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="xiaomo" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="16dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin" />
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+            ​
+        </android.support.design.widget.AppBarLayout>
+
+
+        <!--头像-->
+        <RelativeLayout
+            android:id="@+id/min_rl"
+            android:layout_gravity="center_horizontal"
+            app:layout_anchorGravity="top|center_horizontal"
+            app:layout_anchor="@id/materialup_title_container"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/x70">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ivSetAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/im_myhead"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/vip_color"
+                app:layout_scrollFlags="scroll" />
+
+            <ImageView
+                android:id="@+id/slide_iv"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="@dimen/x28"
+                android:layout_height="@dimen/x28" />
+        </RelativeLayout>
+
+
+
+
+        <com.wallet.bo.wallets.ui.weiget.BounceNestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <!--信息列表-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--个人信息-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_mineInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_info"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="个人信息"
+                    android:textSize="14dp" />
+
+                <!--银行卡-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_mybank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_mybank"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="银行卡"
+                    android:textSize="14dp" />
+
+                <!--我的借款-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_mywallete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_mywallete"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="我的借款"
+                    android:textSize="14dp" />
+
+                <!--浏览记录-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_myloan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_myloan"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="浏览记录"
+                    android:textSize="14dp" />
+
+                <!--我的消息-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_mymessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_mymessage"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="我的消息"
+                    android:textSize="14dp" />
+
+                <!--帮助中心-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_help"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="帮助中心"
+                    android:textSize="14dp" />
+
+                <!--反馈意见-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_myopnion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_myopnion"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="反馈意见"
+                    android:textSize="14dp" />
+
+                <!--关于我们-->
+                <TextView
+                    android:onClick="@{mineclick.onClick}"
+                    android:id="@+id/tv_we"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="6dip"
+                    android:background="@android:color/white"
+                    android:drawableLeft="@drawable/im_we"
+                    android:drawablePadding="10dip"
+                    android:drawableRight="@drawable/im_spinner_right"
+                    android:gravity="center_vertical"
+                    android:padding="15dip"
+                    android:text="关于我们"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+        </com.wallet.bo.wallets.ui.weiget.BounceNestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

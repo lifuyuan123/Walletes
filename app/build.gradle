@@ -1,0 +1,249 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'org.greenrobot.greendao'
+
+apply plugin: 'com.jakewharton.butterknife'
+
+
+
+repositories {
+
+    flatDir {
+        dirs 'libs'
+    }
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+
+greendao {
+    schemaVersion 1
+    daoPackage 'com.wallet.bo.wallets.greendao.gen'
+    targetGenDir 'src/main/java'
+}
+
+ext { // 将 PPD sdk 放到单独的进程
+    processName = ":ppd_sdk"
+}
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.wallet.bo.wallets"
+        minSdkVersion 18
+        targetSdkVersion 22
+        versionCode 12
+        versionName "1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        manifestPlaceholders = [processName: processName]
+        //语言只用中文
+        resConfigs "zh"
+        ndk {
+            //选择要添加的对应cpu类型的.so库
+            abiFilters 'armeabi', 'x86'
+            //还可以添加 , 'arm64-v8a',,"armeabi-v7a"
+        }
+
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+//                JPUSH_APPKEY : "655421778ec4c5baa15c8bc3", //JPush上注册的包名对应的appkey.
+                JPUSH_APPKEY : "60a9c4a9009c150143d9dc0f",
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/rxjava.PROPERTIES'
+        exclude 'META-INF/RXJAVA.properties'
+        exclude 'META-INF/RXJAVA.PROPERTIES'
+        exclude 'META-INF/rxjava'
+        exclude 'META-INF/RXJAVA'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/notice.txt'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+
+    signingConfigs {
+        release {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+        }
+        config {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    compile 'com.github.bumptech.glide:glide:3.7.0'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+    compile files('libs/commons-codec-1.10.jar')//Base64
+    compile files('libs/MobCommons-2017.0608.1618.jar')
+    compile files('libs/MobTools-2017.0608.1618.jar')
+    //    compile 'com.tencent.bugly:crashreport:latest.release'
+
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+
+    //注释掉原有bugly的仓库
+
+    //compile 'com.tencent.bugly:crashreport:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.3.2
+
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile files('libs/alipaySdk-20170725.jar')
+    compile files('libs/libammsdk.jar')
+    //    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile files('libs/SecurePay-2.6.5.jar')
+    compile files('libs/libapshare20161108.jar')
+    //    银行卡扫描
+
+    //    compile(name: 'shujumohe_sdk_release_20170901_1.2.0', ext: 'aar')
+    compile(name: 'shujumohe_sdk_release_20171012_1.2.1', ext: 'aar')
+    //添加头和loadMore
+
+    //    PPD START
+    compile('org.apache.httpcomponents:httpmime:4.3.5') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    // 注意这里，需要将官方Volley 改为这个，避免因Volley 引起的内存泄漏。
+    compile(name: 'ppd-loan-sdk-1.6_9', ext: 'aar')
+    //    PPD END
+
+    //lianlian 人脸识别 身份证检测 start
+    compile(name: 'udidsafe-V4.1.2-2017_03_06', ext: 'aar')
+    //lianlian 人脸识别 身份证检测 end
+
+    //    compile 'com.jakewharton:butterknife:8.8.1'
+
+    //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //    compile 'cn.jiguang:jpush:2.1.8'
+
+    // 此处以JPush 3.0.9 版本为例。
+
+    // 此处以JCore 1.1.7 版本为例。
+
+    //    compile 'com.github.bumptech.glide:glide:3.6.1'
+
+//    compile 'com.baidu.mobstat:mtj-sdk:latest.integration'
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.7.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.yanzhenjie:recyclerview-swipe:1.0.4'
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'cn.jiguang.sdk:jpush:3.0.9'
+    compile 'cn.jiguang.sdk:jcore:1.1.7'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'org.greenrobot:greendao:3.0.1'
+    compile 'org.greenrobot:greendao-generator:3.0.0'
+    compile 'com.jaeger.statusbaruitl:library:1.3.5'
+    compile 'io.card:android-sdk:5.4.2'
+    compile 'com.alibaba:fastjson:1.1.58.android'
+    compile 'com.zhy:base-rvadapter:3.0.3'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.1.3'
+    compile 'com.android.support:support-v13:25.1.0'
+    compile 'com.sunfusheng:marqueeview:1.3.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.baidu.mobstat:mtj-sdk-circle:latest.integration'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+    compile 'com.android.support:palette-v7:25.0.0'
+}
+
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = []
+        }
+        dx.additionalParameters += '--multi-dex' // enable multidex
+
+        // optional
+        // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+    }
+}

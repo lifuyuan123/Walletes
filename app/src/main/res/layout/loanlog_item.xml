@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:padding="8dip">
+
+
+        <ImageView
+            android:id="@+id/im_shop"
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/im_shop"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:id="@+id/lin_name"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:id="@+id/tv_pName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="拍拍贷拍拍贷拍拍贷拍拍贷拍拍贷"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:id="@+id/tv_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/im_pbinfo"
+                        android:gravity="center"
+                        android:text="立即借款"
+                        android:textColor="@android:color/holo_orange_light"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lin_name"
+                    android:text="5分钟放款 信用换现金 通过率高"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

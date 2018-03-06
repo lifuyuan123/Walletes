@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    android:orientation="vertical"
+    android:padding="20dip">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择借款金额"
+        android:textColor="@android:color/black" />
+
+
+    <RadioGroup
+        android:id="@+id/rg_money"
+        android:alwaysDrawnWithCache="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:button="@null"
+            android:textColor="@android:color/black"
+            android:drawableLeft="@drawable/radiobg_selector"
+            android:drawablePadding="10dip"
+            android:text="2000" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:button="@null"
+            android:textColor="@android:color/black"
+            android:drawableLeft="@drawable/radiobg_selector"
+            android:drawablePadding="10dip"
+            android:text="3000" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:button="@null"
+            android:textColor="@android:color/black"
+            android:drawableLeft="@drawable/radiobg_selector"
+            android:drawablePadding="10dip"
+            android:text="5000" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:button="@null"
+            android:textColor="@android:color/black"
+            android:drawableLeft="@drawable/radiobg_selector"
+            android:drawablePadding="10dip"
+            android:text="8000" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:button="@null"
+            android:textColor="@android:color/black"
+            android:drawableLeft="@drawable/radiobg_selector"
+            android:drawablePadding="10dip"
+            android:text="10000" />
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dip"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/et_money"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@null"
+            android:hint="输入其他金额"
+            android:inputType="numberDecimal" />
+
+
+        <Button
+            android:id="@+id/bt_checkIn"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/titlebg_selector"
+            android:text="确定"
+            android:textColor="@drawable/title_selector" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
